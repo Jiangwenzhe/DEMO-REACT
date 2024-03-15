@@ -2,7 +2,7 @@ import { ReactElementType } from 'shared/ReactTypes';
 import { mountChildFibers, reconcileChildFibers } from './childFibers';
 import { FiberNode } from './fiber';
 import { UpdateQueue, processUpdateQueue } from './updateQueue';
-import { HostComponet, HostRoot, HostText } from './workTags';
+import { HostComponent, HostRoot, HostText } from './workTags';
 
 // 递归中的递节点
 export const beginWork = (wip: FiberNode) => {
@@ -12,7 +12,7 @@ export const beginWork = (wip: FiberNode) => {
 		case HostRoot:
 			return updateHostRoot(wip);
 		// 常规 DOM 元素，<div>
-		case HostComponet:
+		case HostComponent:
 			return updateHostComponent(wip);
 		// 文本节点 <div>123</div> 中的 123, 所以没有 children
 		case HostText:

@@ -1,7 +1,7 @@
 import { Container } from 'hostConfig';
 import { Key, Props, ReactElementType, Ref } from 'shared/ReactTypes';
 import { FLags, NoFlags } from './fiberFlags';
-import { FunctionComponent, HostComponet, WorkTag } from './workTags';
+import { FunctionComponent, HostComponent, WorkTag } from './workTags';
 
 export class FiberNode {
 	type: any;
@@ -104,7 +104,7 @@ export function createFiberFromElement(element: ReactElementType): FiberNode {
 	let fiberTag: WorkTag = FunctionComponent;
 	if (typeof type === 'string') {
 		// <div> type: 'div'
-		fiberTag = HostComponet;
+		fiberTag = HostComponent;
 	} else if (typeof type !== 'function' && __DEV__) {
 		console.warn('未定义的 type 类型', element);
 	}
