@@ -34,19 +34,19 @@ export const enqueueUpdate = <State>(
 export const processUpdateQueue = <State>(
 	baseState: State,
 	pendingUpdate: Update<State> | null
-): { memorizedState: State } => {
+): { memoizedState: State } => {
 	const result: ReturnType<typeof processUpdateQueue<State>> = {
-		memorizedState: baseState
+		memoizedState: baseState
 	};
 	if (pendingUpdate !== null) {
-		// baseState 1 update 2 -> memorizedState 2
-		// baseState 1 update (x) => 4x -> memorizedState 4
+		// baseState 1 update 2 -> memoizedState 2
+		// baseState 1 update (x) => 4x -> memoizedState 4
 		// action 就是 setState 里面的值，可能是值，也可能是 updater 函数
 		const action = pendingUpdate.action;
 		if (action instanceof Function) {
-			result.memorizedState = action(baseState);
+			result.memoizedState = action(baseState);
 		} else {
-			result.memorizedState = action;
+			result.memoizedState = action;
 		}
 	}
 	return result;

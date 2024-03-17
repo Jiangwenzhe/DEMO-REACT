@@ -46,8 +46,8 @@ function updateHostRoot(wip: FiberNode) {
 	const updateQueue = wip.updateQueue as UpdateQueue<Element>;
 	const pending = updateQueue.shared.pending;
 	updateQueue.shared.pending = null;
-	const { memorizedState } = processUpdateQueue(baseState, pending);
-	wip.memoizedState = memorizedState;
+	const { memoizedState } = processUpdateQueue(baseState, pending);
+	wip.memoizedState = memoizedState;
 	// 这里的 nextChildren 就是 reactdom.createRoot.render(<App />) 里传入的
 	const nextChildren = wip.memoizedState;
 	reconcileChildren(wip, nextChildren);
