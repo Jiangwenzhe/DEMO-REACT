@@ -1,9 +1,8 @@
+import { useState } from 'react';
+
 function App() {
-	return (
-		<div>
-			<span>hello world</span>
-		</div>
-	);
+	const [num, setNum] = useState(100);
+	return <div>{102222}</div>;
 }
 
 export default App;
