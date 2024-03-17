@@ -1,12 +1,20 @@
 import { REACT_ELEMENT_TYPE } from 'shared/ReactSymbols';
 import {
-	Type,
+	ElementType,
 	Key,
-	Ref,
 	Props,
 	ReactElementType,
-	ElementType
+	Ref,
+	Type
 } from 'shared/ReactTypes';
+
+export function isValidElement(object: any) {
+	return (
+		typeof object === 'object' &&
+		object !== null &&
+		object.$$typeof === REACT_ELEMENT_TYPE
+	);
+}
 
 // ReactElement
 
