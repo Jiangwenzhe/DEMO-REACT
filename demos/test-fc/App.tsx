@@ -3,7 +3,7 @@ import { useState } from 'react';
 function App() {
 	const [num, setNum] = useState(100);
 	window.setNum = setNum;
-	return num === 3 ? <span>3333</span> : <div>{num}</div>;
+	return <button onClick={() => setNum(() => num + 1)}>{num}</button>;
 }
 
 export default App;

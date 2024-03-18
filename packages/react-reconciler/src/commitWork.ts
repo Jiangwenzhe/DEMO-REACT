@@ -4,7 +4,7 @@ import {
 	Container,
 	removeChild
 } from 'hostConfig';
-import { FiberNode, FiberNode, FiberRootNode } from './fiber';
+import { FiberNode, FiberRootNode } from './fiber';
 import {
 	childDeletion,
 	MutationMask,

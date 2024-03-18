@@ -5,6 +5,7 @@ import {
 	updateContainer
 } from 'react-reconciler/src/fiberReconciler';
 import { ReactElementType } from '../../shared/ReactTypes';
+import { initEvent } from './SyntheticEvent';
 import { Container } from './hostConfig';
 
 export function createRoot(container: Container) {
@@ -12,6 +13,7 @@ export function createRoot(container: Container) {
 
 	return {
 		render(element: ReactElementType) {
+			initEvent(container, 'click');
 			return updateContainer(element, root);
 		}
 	};
